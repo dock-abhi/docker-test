@@ -28,7 +28,7 @@ struct cm_fm_config fm_cust_pol_custom_config[] = {
 
         /*****************************************************************************
          * If you want to customize any of the op-codes commented below, you need to *
-         * uncomment it.
+         * uncomment it. ok
          *****************************************************************************/
 
 /*	{ PCM_OP_CUST_POL_PRE_COMMIT,		"op_cust_pol_pre_commit" },
