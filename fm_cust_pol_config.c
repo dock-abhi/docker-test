@@ -57,8 +57,8 @@ struct cm_fm_config fm_cust_pol_custom_config[] = {
 	{ PCM_OP_CUST_POL_PREP_PASSWD,		"op_cust_pol_prep_passwd" },
 	{ PCM_OP_CUST_POL_PREP_LOGIN,		"op_cust_pol_prep_login" },
 	{ PCM_OP_CUST_POL_PREP_LOCALE,		"op_cust_pol_prep_locale" },
-	{ PCM_OP_CUST_POL_PREP_LIMIT,		"op_cust_pol_prep_limit" },
-	{ PCM_OP_CUST_POL_PREP_STATUS,		"op_cust_pol_prep_status" }, */
+	{ PCM_OP_CUST_POL_PREP_LIMIT,		"op_cust_pol_prep_limit" },*/
+	{ PCM_OP_CUST_POL_PREP_STATUS,		"op_cust_pol_prep_status" }, 
 	{ PCM_OP_CUST_POL_COMPARE_PASSWD,	"op_cust_pol_compare_passwd" },
 /*	{ PCM_OP_CUST_POL_ENCRYPT_PASSWD,	"op_cust_pol_encrypt_passwd" },
 	{ PCM_OP_CUST_POL_DECRYPT_PASSWD,	"op_cust_pol_decrypt_passwd" },
