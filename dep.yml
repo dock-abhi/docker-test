@@ -19,3 +19,5 @@ spec:
         ports:
         - name: nginxport
           containerPort: 80
+      imagePullSecrets:
+      - name: ocirsecret
