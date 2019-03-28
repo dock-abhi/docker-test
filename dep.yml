@@ -12,7 +12,7 @@ spec:
     spec:
       containers:
       - name: web
-        image: phx.ocir.io/intcgbuconsulting/nginx:latest
+        image: phx.ocir.io/intcgbuconsulting/nginx:BUILDNUMBER
         ports:
         - name: nginxport
           containerPort: 80
