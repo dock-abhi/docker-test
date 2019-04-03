@@ -1,0 +1,51 @@
+pipeline {
+  environment {
+    registry = "phx.ocir.io"
+    ocireg = "phx.ocir.io/intcgbuconsulting/nginx"
+    registryCredential = '3b75153c-4306-459b-944e-f647b5d3103d'
+	
+  }
+  agent any
+  stages {
+    stage('Checkout') {
+	steps{
+        script {
+			git branch: 'master', credentialsId: 'd8469cd7-f892-4bdc-8f6a-cf7bb49080ae', url: 'https://github.com/dock-abhi/docker-test.git'
+				}
+			}
+   }
+    stage('Building image') {
+      steps{
+        script {
+          dockerImage = docker.build ocireg + ":$BUILD_NUMBER"
+      }
+        }
+      }
+      stage('Test Docker image') {
+		steps {
+			script {
+				dockerImage.inside {
+					sh 'echo "Tests passed"'
+                }
+            }
+        }
+    }
+     stage('Deploy Image') {
+      steps{
+        script {
+          docker.withRegistry( registry, registryCredential ) {
+            
+            dockerImage.push()
+          }
+        }
+      }
+    }
+    
+    stage('kubernetes runs') {
+      steps{
+        sh 'sed -i "s/BUILDNUMBER/$BUILD_NUMBER/" dep.yml'   
+        sh 'kubectl apply -f dep.yml || echo "nothing to create"' 
+      }
+    }
+    }
+  }
