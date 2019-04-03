@@ -1,4 +1,4 @@
-FROM phx.ocir.io/intcgbuconsulting/brmbaseimage:v2
+FROM phx.ocir.io/intcgbuconsulting/brmbase:v1
 
 COPY fm_cust_pol_config.c /opt/pin/BRM/source/sys/fm_cust_pol
 RUN cd /opt/pin/BRM
