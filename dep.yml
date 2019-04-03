@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: brm-app-deployment
+spec:
+  selector:
+    matchLabels:
+      app: brm
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: brm
+    spec:
+      containers:
+      - name: brm
+        image: phx.ocir.io/intcgbuconsulting/brmbase:v1
+        command: [ "tail -f /dev/null" ]
+        ports:
+        -   name: app-port
+            containerPort: 11960
+      imagePullSecrets:
+        # enter the name of the secret you created  
+      - name: ocirsecret
+---      
+      
+apiVersion: v1
+kind: Service
+metadata:
+  name: brm-app-svc
+spec:
+  ports:
+  - port: 8009
+    targetPort: app-port
+    protocol: TCP
+  selector:
+    app: brm
+  type: LoadBalancer
