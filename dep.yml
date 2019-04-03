@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: brm
-        image: phx.ocir.io/intcgbuconsulting/brmbase:v1
+        image: phx.ocir.io/intcgbuconsulting/brmbase::BUILDNUMBER
         command: [ "tail -f /dev/null" ]
         ports:
         -   name: app-port
