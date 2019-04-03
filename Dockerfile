@@ -10,6 +10,7 @@ RUN . ~/.bashrc && \
 RUN cp /opt/pin/BRM/source/sys/fm_cust_pol/fm_cust_pol_custom.so /opt/pin/BRM/lib/fm_cust_pol_custom.so
 RUN . ~/.bashrc && \
     . /opt/pin/BRM/source.me.sh && \
+    stop_cm || echo "not running" && \
     start_cm 
-RUN chmod +x abc
+
 
