@@ -1,4 +1,5 @@
 FROM phx.ocir.io/intcgbuconsulting/brmbase:v1
+user pin
 ADD build.sh /opt/pin/BRM/
 ADD fm_cust_pol_config.c /opt/pin/BRM/source/sys/fm_cust_pol/fm_cust_pol_config.c
 RUN ls -l /opt/pin/BRM
