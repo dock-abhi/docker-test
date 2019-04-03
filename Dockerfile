@@ -1,8 +1,11 @@
 FROM phx.ocir.io/intcgbuconsulting/brmbase:v1
 USER pin
-ADD build.sh /opt/pin/BRM/
 ADD fm_cust_pol_config.c /opt/pin/BRM/source/sys/fm_cust_pol/fm_cust_pol_config.c
-RUN ls -l /opt/pin/BRM
-RUN chmod +x /opt/pin/BRM/build.sh
-RUN /opt/pin/BRM/build.sh
-RUN ls -l /opt/pin/BRM/source/sys/fm_cust_pol
+RUN . ~/.bashrc && \
+    . /opt/pin/BRM/source.me.sh && \
+    cd /opt/pin/BRM/source/sys/fm_cust_pol && \
+    make clean && \
+    make
+RUN cp fm_cust_pol_custom.so /opt/pin/BRM/lib/fm_cust_pol_custom.so
+RUN chmod +x abc
+
