@@ -1,4 +1,5 @@
 #!/bin/bash
+#not to be used
 cd /opt/pin/BRM
 source source.me.sh
 cd /opt/pin/BRM/source/sys/fm_cust_pol
