@@ -15,7 +15,8 @@ spec:
       containers:
       - name: brm
         image: phx.ocir.io/intcgbuconsulting/brmbase::BUILDNUMBER
-        command: [ "tail -f /dev/null" ]
+        command: [ "/bin/bash", "-c", "--" ]
+        args: [ "while true; do sleep 30; done;" ]
         ports:
         -   name: app-port
             containerPort: 11960
